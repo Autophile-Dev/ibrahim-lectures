@@ -1,0 +1,8 @@
+.button-component {
+  padding: 30px 40px;
+  background: #011c2f;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+}
