@@ -18,10 +18,11 @@ function App({ user }) {
     console.log(inputValue);
   }
 
+
   function handleSubmit() {
     if (value !== '') {
       setError('');
-      console.log('Data uploaded');
+      console.log('Input Data uploaded');
     } else {
       setError('Field is empty');
     }
