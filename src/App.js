@@ -1,15 +1,17 @@
-import './App.css';
-import Button from './components/Buttons/Button';
-import Navbar from './components/navbar/Navbar';
-import Swal from 'sweetalert2'
-import PrimaryBtn from './components/Buttons/Primary-Buttons/PrimaryBtn';
-import Form1 from './components/form/form1/Form1';
+import "./App.css";
+import Button from "./components/Buttons/Button";
+import Navbar from "./components/navbar/Navbar";
+import Swal from "sweetalert2";
+import BtnWithLoader from "./components/Buttons/Primary-Buttons/BtnWithLoader"
+import SimpleBtn from "./components/Buttons/Primary-Buttons/SimpleBtn"
+import BtnWithArrow from "./components/Buttons/Primary-Buttons/BtnWithArrow";
+import PremierBtn from "./components/Buttons/Primary-Buttons/PremierBtn";
 function App({ user }) {
   // const elementTest = 'Im student';
   // Creating object
   const userObject = {
-    firstName: 'Ibrahim',
-    lastName: 'Muddasir',
+    firstName: "Ibrahim",
+    lastName: "Muddasir",
     age: 17,
     nestedObject: {
       nestedObjectValue1: 1,
@@ -29,41 +31,40 @@ function App({ user }) {
   //   return num;
   // }
 
-
   function authenticateUser(user) {
-    return user.firstName + ' ' + user.lastName;
+    return user.firstName + " " + user.lastName;
   }
   function greetingForUser(user) {
-    return !user ? <h1>Hi {authenticateUser(user)} </h1> : <h1>Hi error</h1>
+    return !user ? <h1>Hi {authenticateUser(user)} </h1> : <h1>Hi error</h1>;
   }
   function randomClicker() {
     Swal.fire({
-      title: 'Testing Sweet Alert',
-      text: 'Happy with this implementation in this alert',
-      icon: 'success',
+      title: "Testing Sweet Alert",
+      text: "Happy with this implementation in this alert",
+      icon: "success",
       showClass: {
         popup: `
           animate__animated
           animate__fadeInUp
           animate__faster
-        `
+        `,
       },
       hideClass: {
         popup: `
           animate__animated
           animate__fadeOutDown
           animate__faster
-        `
-      }
+        `,
+      },
     });
   }
   function testClicker() {
     Swal.fire({
-      title: 'Testing Sweet Alert',
-      text: 'Close this alert',
-      icon: 'error',
-      background: '#678299',
-      color: '#ffffff'
+      title: "Testing Sweet Alert",
+      text: "Close this alert",
+      icon: "error",
+      background: "#678299",
+      color: "#ffffff",
     });
     // console.log("Ibrahim is clicking the button");
   }
@@ -83,30 +84,22 @@ function App({ user }) {
       <h1>Object: {userObject.lastName}</h1> */}
       {/* {greetingForUser(userObject)} */}
 
+      {/* <button onClick={randomClicker}>Random Button</button> */}
 
-
-
-      <button onClick={randomClicker}>Random Button</button>
-
-
-
-
-      <div className='buttons-container'>
-        <Button title="Contact Us" onClick={randomClicker} />
+      <div className="buttons-container">
+        {/* <Button title="Contact Us" onClick={randomClicker} />
         <Button title="Ibrahim" onClick={testClicker} />
         <Button title="About" onClick={testClicker} />
-        <Button title="About" onClick={randomClicker} />
+        <Button title="About" onClick={randomClicker} /> */}
 
-        <PrimaryBtn titel="ibraheem" fronticon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
-</svg>}/>
+        {/* Reuseable {BUTTON} components */}
 
-<Form1 placeholder="Text" label="Label" hintmsg="Hint Message"/>
-
-
-
+        <SimpleBtn title="Label"/>
+        <BtnWithLoader title="Label"/>
+        <BtnWithArrow  title="Label"/>
+        <PremierBtn title="Label"/>
+      
       </div>
-
     </div>
   );
 }

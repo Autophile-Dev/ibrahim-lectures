@@ -6,3 +6,19 @@
   border: none;
   font-size: 20px;
 }
+#btn{
+  background-color: #496ddb;
+  color: #ffffff;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 7px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 100;
+  gap: 10px;
+}
+
+
