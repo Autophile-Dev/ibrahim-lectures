@@ -11,14 +11,14 @@ body {
   display: flex;
   gap: 16px;
 }
-.text-container{
+.text-container {
   display: flex;
   flex-direction: column;
 }
-input{
+input {
   margin-top: 4px;
 }
-.error-message{
+.error-message {
   margin-top: 2px;
   color: red;
   font-size: 12px;

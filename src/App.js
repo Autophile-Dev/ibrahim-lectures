@@ -3,6 +3,8 @@ import './App.css';
 import Button from './components/Buttons/Button';
 import Navbar from './components/navbar/Navbar';
 import Swal from 'sweetalert2'
+import Users from './components/Table/Users';
+import Photos from './components/Photos/Photos';
 function App({ user }) {
 
   const [value, setValue] = useState('');
@@ -112,12 +114,16 @@ function App({ user }) {
         <Button title="About" onClick={testClicker} />
         <Button title="About" onClick={randomClicker} />
       </div> */}
-      <div className='text-container'>
+      {/* <div className='text-container'>
         <label>Enter Text</label>
         <input placeholder='Enter value' type='text' value={value} onChange={handleInput} />
         <span className='error-message'>{error && <div>{error}</div>}</span>
       </div>
-      <button onClick={handleSubmit}>Upload</button>
+      <button onClick={handleSubmit}>Upload</button> */}
+
+
+      {/* <Users /> */}
+      <Photos />
     </div>
   );
 }
