@@ -47,7 +47,6 @@ const Photos = () => {
                     </CardActionArea>
                 </Card>
             ))}
-
         </div>
     )
 }

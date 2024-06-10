@@ -5,6 +5,9 @@ import Navbar from './components/navbar/Navbar';
 import Swal from 'sweetalert2'
 import Users from './components/Table/Users';
 import Photos from './components/Photos/Photos';
+import { Link, Route, Routes } from 'react-router-dom';
+import Error from './components/Table/Error';
+import ViewUser from './components/Table/ViewUser';
 function App({ user }) {
 
   const [value, setValue] = useState('');
@@ -123,7 +126,22 @@ function App({ user }) {
 
 
       {/* <Users /> */}
-      <Photos />
+      {/* <Photos /> */}
+      <Routes>
+        <Route path='/test' element={<Button />} />
+      </Routes>
+      <Routes>
+        <Route path='/' element={<Users />} />
+      </Routes>
+      {/* <Routes>
+        <Route path='*' element={<Error />} />
+      </Routes> */}
+      <Routes>
+        <Route path='/user' element={<Users />} />
+      </Routes>
+      <Routes>
+        <Route path='/user/:id' element={<ViewUser />} />
+      </Routes>
     </div>
   );
 }
