@@ -1,0 +1,21 @@
+.form-create-user {
+  display: flex;
+  flex-direction: column;
+}
+.error-message {
+  font-size: 12px;
+  color: red;
+}
+label {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+}
+.add-user{
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #540101;
+    border: none;
+    color: aliceblue;
+}
