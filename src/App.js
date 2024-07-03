@@ -8,10 +8,13 @@ import Photos from './components/Photos/Photos';
 import { Link, Route, Routes } from 'react-router-dom';
 import Error from './components/Table/Error';
 import ViewUser from './components/Table/ViewUser';
+import CreateUser from './components/form/form1/CreateUser';
 function App({ user }) {
 
   const [value, setValue] = useState('');
   const [error, setError] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   function handleInput(event) {
 
@@ -138,6 +141,9 @@ function App({ user }) {
       </Routes> */}
       <Routes>
         <Route path='/user' element={<Users />} />
+      </Routes>
+      <Routes>
+        <Route path='/create-user' element={<CreateUser />} />
       </Routes>
       <Routes>
         <Route path='/user/:id' element={<ViewUser />} />
