@@ -9,7 +9,10 @@ import { Link, Route, Routes } from 'react-router-dom';
 import Error from './components/Table/Error';
 import ViewUser from './components/Table/ViewUser';
 import CreateUser from './components/form/form1/CreateUser';
+<<<<<<< HEAD
 import UpdateUser from './components/form/form1/UpdateUser';
+=======
+>>>>>>> 2e40d1f987e26c709e47818521a90e0f835a9481
 function App({ user }) {
 
   const [value, setValue] = useState('');
