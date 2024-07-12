@@ -11,10 +11,8 @@ const ViewUser = () => {
     const fetchUsersData = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`https://jsonplaceholder.typicode.com/users?id=${id}`);
-            if (response.data.length > 0) {
-                setData(response.data[0]);
-            }
+            const response = await axios.get(`http://localhost:5051/auth/users/specific-user/${id}`);
+            setData(response.data.user);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -30,11 +28,11 @@ const ViewUser = () => {
         <div>
             <h1>{id}</h1>
             <hr />
-            <span>Name: {data.name}</span>
+            <span>Name: {data.firstName + '' + data.lastName}</span>
             <hr />
-            <span>User Name: {data.username}</span>
+            <span>Phone Number: {data.phoneNum}</span>
             <hr />
-            <span>Email: {data.email}</span>
+            {/* <span>Email: {data.email}</span> */}
             {/* <span>{data.address}</span> */}
         </div>
     )
