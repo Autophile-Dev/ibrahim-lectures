@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './form.css';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 const CreateUser = () => {
   const [userFields, setUserFields] = useState({
     firstName: '',
@@ -39,24 +41,71 @@ const CreateUser = () => {
     }
 
     if (!userFields.phoneNum) {
-      newUserFieldsErrors.firstNameError = "Phone number is required";
+      newUserFieldsErrors.phoneNumError = "Phone number is required";
       isValid = true;
     } else {
       newUserFieldsErrors.phoneNumError = "";
     }
 
     if (!userFields.password) {
-      newUserFieldsErrors.firstNameError = "Password is required";
+      newUserFieldsErrors.passwordError = "Password is required";
       isValid = true;
     } else if (userFields.password.length < 6) {
-      newUserFieldsErrors.firstNameError = "Password should be 6 character long";
+      newUserFieldsErrors.passwordError = "Password should be 6 character long";
       isValid = true;
     }
     else {
-      newUserFieldsErrors.firstNameError = "";
+      newUserFieldsErrors.passwordError = "";
     }
 
-    
+    setUserFieldsError(newUserFieldsErrors);
+
+
+    const requestBody = {
+      firstName: userFields.firstName,
+      lastName: userFields.lastName,
+      phoneNum: userFields.phoneNum,
+      password: userFields.password,
+    };
+
+    if (isValid) {
+      setIsLoading(true);
+      try {
+        const request = await axios.post('http://localhost:5051/auth/users/create-user', requestBody);
+        if (request.status === 200) {
+          setUserFields({
+            firstName: '',
+            lastName: '',
+            phoneNum: '',
+            password: ''
+          });
+          Swal.fire({
+            icon: 'success',
+            title: 'User has been created in system',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown',
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+        } else if (request.status === 400) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error while creating user',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown',
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
   }
   // Handling Fields
   const fieldChange = (e) => {
@@ -83,7 +132,7 @@ const CreateUser = () => {
         <span className='error-message'>{userFieldsError.phoneNumError}</span>
 
         <label>Password</label>
-        <input type='text' name='password' value={userFields.password} onChange={fieldChange} />
+        <input type='password' name='password' value={userFields.password} onChange={fieldChange} />
         <span className='error-message'>{userFieldsError.passwordError}</span>
 
         <button className='add-user'>Add User</button>

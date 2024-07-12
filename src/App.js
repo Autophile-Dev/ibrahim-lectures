@@ -9,6 +9,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import Error from './components/Table/Error';
 import ViewUser from './components/Table/ViewUser';
 import CreateUser from './components/form/form1/CreateUser';
+import UpdateUser from './components/form/form1/UpdateUser';
 function App({ user }) {
 
   const [value, setValue] = useState('');
@@ -147,6 +148,9 @@ function App({ user }) {
       </Routes>
       <Routes>
         <Route path='/user/:id' element={<ViewUser />} />
+      </Routes>
+      <Routes>
+        <Route path='/update-user/:id' element={<UpdateUser />} />
       </Routes>
     </div>
   );
